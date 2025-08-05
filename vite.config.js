@@ -8,4 +8,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        outDir: 'build', // NOT public/build — it will go directly inside public_html
+        manifest: true,
+        emptyOutDir: true,
+    },
 });
