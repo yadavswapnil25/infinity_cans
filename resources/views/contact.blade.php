@@ -47,15 +47,16 @@
                         </p>
                     </div>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf
                         <div class="contact-form-row">
                             <div class="contact-input-group">
                                 <label for="firstName" class="contact-label">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" class="contact-input" required>
+                                <input type="text" id="firstName" name="first_name" class="contact-input" required>
                             </div>
                             <div class="contact-input-group">
                                 <label for="lastName" class="contact-label">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" class="contact-input" required>
+                                <input type="text" id="lastName" name="last_name" class="contact-input" required>
                             </div>
                         </div>
                         
@@ -72,12 +73,12 @@
                         
                         <div class="contact-input-group">
                             <label for="company" class="contact-label">Company Name</label>
-                            <input type="text" id="company" name="company" class="contact-input">
+                            <input type="text" id="company" name="company_name" class="contact-input">
                         </div>
                         
                         <div class="contact-input-group">
                             <label for="service" class="contact-label">Service Interested In *</label>
-                            <select id="service" name="service" class="contact-select" required>
+                            <select id="service" name="service_interested" class="contact-select" required>
                                 <option value="">Select a service</option>
                                 <option value="digital-printing">Digital Can Printing</option>
                                 <option value="bottle-printing">Aluminum Bottle Printing</option>
@@ -90,7 +91,7 @@
                         
                         <div class="contact-input-group">
                             <label for="budget" class="contact-label">Project Budget</label>
-                            <select id="budget" name="budget" class="contact-select">
+                            <select id="budget" name="project_budget" class="contact-select">
                                 <option value="">Select budget range</option>
                                 <option value="under-5k">Under $5,000</option>
                                 <option value="5k-15k">$5,000 - $15,000</option>
@@ -106,7 +107,7 @@
                         </div>
                         
                         <div class="contact-checkbox-group">
-                            <input type="checkbox" id="newsletter" name="newsletter" class="contact-checkbox">
+                            <input type="checkbox" id="newsletter" name="subscribe_newsletter" class="contact-checkbox">
                             <label for="newsletter" class="contact-checkbox-label">
                                 Subscribe to our newsletter for industry updates
                             </label>

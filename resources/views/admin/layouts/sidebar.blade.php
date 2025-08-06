@@ -31,15 +31,15 @@
                         </p>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="{{ route('admin.users.index') }}"
-                        class="nav-link @if (route('admin.users.index') == URL::current()) active @endif">
+                <li class="nav-item">
+                    <a href="{{ route('admin.contacts.index') }}"
+                        class="nav-link @if (route('admin.contacts.index') == URL::current()) active @endif">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
-                            Users
+                            Contacts
                         </p>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.booklets.index') }}"
                         class="nav-link @if (route('admin.booklets.index') == URL::current()) active @endif">

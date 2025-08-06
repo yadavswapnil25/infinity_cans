@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\ExamEnrollmentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BookletController;
+use App\Http\Controllers\Admin\ExamEnrollmentController;
 use App\Http\Controllers\Admin\BookletQuestionController;
-use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+
 Route::get('/products', function () {
     return view('products');
 });
@@ -79,7 +83,8 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::get('/booklet/delete/{id}', [BookletController::class, 'destroy'])->name('booklet.delete');
     Route::resource('bookletQuestion', BookletQuestionController::class);
     Route::get('/booklet/question/delete/{id}', [BookletQuestionController::class, 'destroy'])->name('booklet.question.delete');
-    
+    Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+
     // Define resource routes for exam enrollments and custom routes for edit, update, and delete actions.
     Route::resource('examEnrollments', ExamEnrollmentController::class);
     // Route::get('/examEnrollment/edit/{id}', [ExamEnrollmentController::class, 'edit'])->name('examEnrollments.edit');
